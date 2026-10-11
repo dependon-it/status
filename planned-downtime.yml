@@ -1,0 +1,21 @@
+# Planned downtime for the status page (IT-1353). Times are UTC.
+#
+# THE HOURS LIVE IN TWO PLACES. The real schedule is set in the doit-infra repo,
+# maintenance/index.ts: stop cron(0 22 * * ? *), start cron(0 5 * * ? *), timezone
+# Africa/Johannesburg (20:00 and 03:00 UTC, no daylight saving). This file is a COPY of
+# those hours. Change one, change the other.
+#
+# The end is the 03:00 UTC wake plus 30 minutes for the database and the worker to come back.
+nightly:
+  start: '20:00'
+  end: '03:30'
+  # Site slugs from .upptimerc.yml that sleep. Web app and Help Centre run on Vercel and
+  # stay up. Owner step O10: look on the first night and fix this list if it is wrong.
+  components:
+    - api-and-database
+    - background-jobs
+  message: 'DependOn.It sleeps every night during the test phase, from 22:00 to 05:00 South African time. This is planned.'
+
+# A full hibernation is opened and closed by hand with the "Planned downtime" workflow
+# (owner step O9). The windows it makes are kept in planned-downtime.json, not here.
+hibernation: []

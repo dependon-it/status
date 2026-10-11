@@ -1,31 +1,47 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# DependOn.It status page — Upptime configuration (IT-1352).
+# Source of truth lives in the doit repo at ops/status-page/. Pushed to the PUBLIC
+# status repo by push.sh (owner step). Nothing private may go in this file:
+# `yarn status:check` fails on tokens, email addresses and internal host names.
+owner: dependon-it
+repo: status
 
+# Real addresses, checked with curl on 2026-10-11. The bare domain answers 308 and
+# goes to www, so the checks use www directly.
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Web app
+    slug: web-app
+    url: https://www.dependon.it
+  - name: API and database
+    slug: api-and-database
+    url: https://www.dependon.it/api/health
+  # Background jobs has no public address of its own: the health answer reports the
+  # worker heartbeat (IT-1351). 503 stays red until the heartbeat cron is armed.
+  - name: Background jobs
+    slug: background-jobs
+    url: https://www.dependon.it/api/health?component=worker
+  # The Help Centre sends a visitor with no tenant to the sign-in page (307), so a
+  # 307 means "the host answers". 200 is kept for the day that changes.
+  - name: Help Centre
+    slug: help-centre
+    url: https://help.dependon.it
+    expectedStatusCodes:
+      - 200
+      - 307
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.dependon.it
+  name: DependOn.It Status
+  # logoUrl: add a public https address of the logo once one is hosted (owner decision).
+  introTitle: '**DependOn.It** service status'
+  introMessage: 'This page shows if DependOn.It is working. During the test phase the service sleeps every night from 22:00 to 05:00 South African time. This is planned and is shown as maintenance, not as an outage.'
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: DependOn.It
+      href: https://www.dependon.it
+    - title: Help Centre
+      href: https://help.dependon.it
+    # Get email updates: the owner pastes the Brevo sign-up form address here
+    # (owner step O8, IT-1357), then removes the comment marks.
+    # - title: Get email updates
+    #   href: https://REPLACE-WITH-THE-BREVO-FORM-ADDRESS

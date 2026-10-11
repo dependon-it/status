@@ -1,0 +1,48 @@
+# Runs in the PUBLIC status repo (pushed by ops/status-page/push.sh). IT-1357.
+# Status emails for subscribers. SWITCHED OFF until the owner sets the variable ENABLE_STATUS_EMAILS to
+# 'true' (owner step O8). Email cannot be taken back, so the default mode is `draft`: the campaign is made
+# in Brevo and sent by a person.
+# Not one of the eight workflow files Upptime rewrites, so the daily template update keeps it.
+name: Notify subscribers
+
+on:
+  # Upptime opens and closes its incident issues with GH_PAT, so these events DO fire
+  # (UPPTIME-NOTES.md, section d).
+  issues:
+    types: [opened, closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notify-subscribers-${{ github.event.issue.number }}-${{ github.event.action }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: vars.ENABLE_STATUS_EMAILS == 'true' && contains(join(github.event.issue.labels.*.name, ','), 'status')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install the one dependency
+        run: npm install --no-save --no-package-lock js-yaml@4
+      - name: Wait ten minutes, so a one-check blink never sends an email
+        if: github.event.action == 'opened'
+        run: sleep 600
+      - name: Email the subscribers
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_STATUS_LIST_ID: ${{ vars.BREVO_STATUS_LIST_ID }}
+          BREVO_STATUS_SENDER_EMAIL: ${{ vars.BREVO_STATUS_SENDER_EMAIL }}
+          MODE: ${{ vars.STATUS_EMAIL_MODE || 'draft' }}
+        run: |
+          args=(--event "$GITHUB_EVENT_PATH" --mode "$MODE")
+          [ "$MODE" != "dry-run" ] && args+=(--yes)
+          [ "${{ github.event.action }}" = "opened" ] && args+=(--recheck)
+          node scripts/notify-subscribers.mjs "${args[@]}"
