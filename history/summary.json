@@ -22,19 +22,19 @@
     "url": "https://www.dependon.it/api/health",
     "icon": "https://icons.duckduckgo.com/ip3/www.dependon.it.ico",
     "slug": "api-and-database",
-    "status": "down",
-    "uptime": "40.52%",
-    "uptimeDay": "40.52%",
-    "uptimeWeek": "40.52%",
-    "uptimeMonth": "40.52%",
-    "uptimeYear": "40.52%",
-    "time": 3555,
-    "timeDay": 3555,
-    "timeWeek": 3555,
-    "timeMonth": 3555,
-    "timeYear": 3555,
+    "status": "up",
+    "uptime": "84.62%",
+    "uptimeDay": "84.62%",
+    "uptimeWeek": "84.62%",
+    "uptimeMonth": "84.62%",
+    "uptimeYear": "84.62%",
+    "time": 3541,
+    "timeDay": 3541,
+    "timeWeek": 3541,
+    "timeMonth": 3541,
+    "timeYear": 3541,
     "dailyMinutesDown": {
-      "2026-10-11": 1
+      "2026-10-11": 56
     }
   },
   {
@@ -43,18 +43,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/www.dependon.it.ico",
     "slug": "background-jobs",
     "status": "down",
-    "uptime": "65.86%",
-    "uptimeDay": "65.86%",
-    "uptimeWeek": "65.86%",
-    "uptimeMonth": "65.86%",
-    "uptimeYear": "65.86%",
+    "uptime": "84.64%",
+    "uptimeDay": "84.64%",
+    "uptimeWeek": "84.64%",
+    "uptimeMonth": "84.64%",
+    "uptimeYear": "84.64%",
     "time": 3690,
     "timeDay": 3690,
     "timeWeek": 3690,
     "timeMonth": 3690,
     "timeYear": 3690,
     "dailyMinutesDown": {
-      "2026-10-11": 0
+      "2026-10-11": 56
     }
   },
   {
