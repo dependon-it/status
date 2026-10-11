@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-10-11T12:00:15.669Z",
+  "windows": [
+    {
+      "kind": "nightly",
+      "start": "2026-10-11T20:00:00.000Z",
+      "end": "2026-10-12T03:30:00.000Z",
+      "components": [
+        "api-and-database",
+        "background-jobs"
+      ],
+      "message": "DependOn.It sleeps every night during the test phase, from 22:00 to 05:00 South African time. This is planned."
+    }
+  ]
+}
