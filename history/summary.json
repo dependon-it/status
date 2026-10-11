@@ -23,18 +23,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/www.dependon.it.ico",
     "slug": "api-and-database",
     "status": "down",
-    "uptime": "44.42%",
-    "uptimeDay": "44.42%",
-    "uptimeWeek": "44.42%",
-    "uptimeMonth": "44.42%",
-    "uptimeYear": "44.42%",
+    "uptime": "40.52%",
+    "uptimeDay": "40.52%",
+    "uptimeWeek": "40.52%",
+    "uptimeMonth": "40.52%",
+    "uptimeYear": "40.52%",
     "time": 3555,
     "timeDay": 3555,
     "timeWeek": 3555,
     "timeMonth": 3555,
     "timeYear": 3555,
     "dailyMinutesDown": {
-      "2026-10-11": 0
+      "2026-10-11": 1
     }
   },
   {
@@ -43,17 +43,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/www.dependon.it.ico",
     "slug": "background-jobs",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "65.86%",
+    "uptimeDay": "65.86%",
+    "uptimeWeek": "65.86%",
+    "uptimeMonth": "65.86%",
+    "uptimeYear": "65.86%",
     "time": 3690,
     "timeDay": 3690,
     "timeWeek": 3690,
     "timeMonth": 3690,
     "timeYear": 3690,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-10-11": 0
+    }
   },
   {
     "name": "Help Centre",
