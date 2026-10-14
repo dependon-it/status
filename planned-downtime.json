@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-13T22:14:13.828Z",
+  "generatedAt": "2026-10-14T11:03:31.542Z",
   "windows": [
     {
       "kind": "nightly",
-      "start": "2026-10-13T20:00:00.000Z",
-      "end": "2026-10-14T03:30:00.000Z",
+      "start": "2026-10-14T20:00:00.000Z",
+      "end": "2026-10-15T03:30:00.000Z",
       "components": [
         "api-and-database",
         "background-jobs"
