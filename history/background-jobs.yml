@@ -1,7 +1,7 @@
 url: https://www.dependon.it/api/health?component=worker
 status: down
 code: 503
-responseTime: 10809
-lastUpdated: 2026-10-16T01:06:53.429Z
+responseTime: 10338
+lastUpdated: 2026-10-17T01:12:57.723Z
 startTime: 2026-10-11T05:22:29.243Z
 generator: Upptime <https://github.com/upptime/upptime>
